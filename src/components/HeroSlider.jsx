@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import logo from '../assets/naiella_web_logo_2.png'
 import section1 from '../assets/section_1_1.png'
 import section2 from '../assets/section_1_2.png'
@@ -27,7 +27,14 @@ With thoughtfully selected ingredients, balanced formulations, and a commitment 
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0)
 
-const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length)
+    }, 8000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length)
   const next = () => setCurrent((c) => (c + 1) % slides.length)
 
   return (
