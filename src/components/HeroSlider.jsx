@@ -72,7 +72,7 @@ export default function HeroSlider() {
                 {/* 본문 텍스트 - 왼쪽 정렬, 넓게 */}
                 <div className="w-full text-left overflow-y-auto flex-1" style={{ maxWidth: '1200px', padding: '0 48px', marginTop: '24px' }}>
                   {slide.text.split('\n\n').map((para, idx) => (
-                    <p key={idx} className="leading-relaxed text-gray-700 mb-3" style={{ fontSize: '15px' }}>
+                    <p key={idx} className="text-gray-700 mb-3" style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '15px', lineHeight: '1.3', fontWeight: '500' }}>
                       {idx === 0 ? (
                         <>
                           <strong>Naiella</strong>{para.slice('Naiella'.length)}

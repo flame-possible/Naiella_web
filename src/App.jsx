@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import HeroSlider from './components/HeroSlider'
 import Section2 from './components/Section2'
@@ -5,9 +6,10 @@ import ProductSlider from './components/ProductSlider'
 import VideoSlider from './components/VideoSlider'
 import Section5 from './components/Section5'
 import Footer from './components/Footer'
+import AboutPage from './components/AboutPage'
 import './index.css'
 
-function App() {
+function Home() {
   return (
     <div className="min-h-screen">
       <Header />
@@ -18,6 +20,27 @@ function App() {
       <Section5 />
       <Footer />
     </div>
+  )
+}
+
+function About() {
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <AboutPage />
+      <Footer />
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
