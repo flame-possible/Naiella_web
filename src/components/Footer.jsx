@@ -14,10 +14,10 @@ export default function Footer() {
 
         {/* 회사 정보 */}
         <div style={{ fontSize: '13px', color: '#888', lineHeight: '1.9', fontFamily: 'sans-serif' }}>
-          <p style={{ fontWeight: '700', color: '#333', marginBottom: '4px' }}>주식회사 에이피알</p>
-          <p>대표이사 : 구태오 / 서울특별시 송파구 올림픽로 300, 36층 (신천동, 롯데월드타워)</p>
-          <p>사업자등록번호 220-88-89441 &nbsp;</p>
-          <p>전자우편주소: cs123@apr-in.com</p>
+          <p style={{ fontWeight: '700', color: '#333', marginBottom: '4px' }}>Nuhan Chems Co., Ltd.</p>
+          <p>CEO : Tae Oh Koo / 32 Yatap-ro, Bundang-gu, Seongnam-si, Gyeonggi-do, 3F #303, Sambu Bldg.</p>
+          <p>Business Registration No. 365-81-03577</p>
+          <p>Email: gbkoo1219@naver.com</p>
         </div>
 
         {/* 카피라이트 */}

@@ -2,14 +2,12 @@ import { useState, useRef, useEffect } from 'react'
 import itemBox from '../assets/Item_Box.png'
 
 const products = [
-  { id: 1, name: 'Botanical Serum', desc: 'Revitalizing bio-energy concentrate for radiant skin.', price: '$120' },
-  { id: 2, name: 'Petal Essence', desc: 'Lightweight floral extract for deep hydration.', price: '$95' },
-  { id: 3, name: 'Velvet Cream', desc: 'Rich molecular barrier cream for lasting moisture.', price: '$140' },
-  { id: 4, name: 'Dew Toner', desc: 'Calming botanical toner to balance skin rhythm.', price: '$75' },
-  { id: 5, name: 'Clarity Oil', desc: 'Ultra-fine botanical oil for luminous finish.', price: '$110' },
-  { id: 6, name: 'Gentle Cleanser', desc: 'Mild foam cleanser with natural botanical blend.', price: '$65' },
-  { id: 7, name: 'Eye Restore', desc: 'Targeted bio-complex for the delicate eye zone.', price: '$155' },
-  { id: 8, name: 'Night Ritual', desc: 'Deep renewal formula activated through the night.', price: '$180' },
+  { id: 1, name: 'Root-Infused Cleanser', desc: 'Revitalizing bio-energy concentrate for radiant skin.', price: '$120' },
+  { id: 2, name: 'Aqueous Rhythm Toner', desc: 'Lightweight floral extract for deep hydration.', price: '$95' },
+  { id: 3, name: 'Fluid Balance Emulsion', desc: 'Rich molecular barrier cream for lasting moisture.', price: '$140' },
+  { id: 4, name: 'Vital Essence Serum', desc: 'Calming botanical toner to balance skin rhythm.', price: '$75' },
+  { id: 5, name: 'Deep Barrier Moisturizing Cream', desc: 'Ultra-fine botanical oil for luminous finish.', price: '$110' },
+  { id: 6, name: 'Active Vitalizing Collagen Gel Mask', desc: 'Mild foam cleanser with natural botanical blend.', price: '$65' },
 ]
 
 export default function ProductSlider() {

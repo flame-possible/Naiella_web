@@ -1,4 +1,4 @@
-import naiellaLogo from '../assets/naiella_web_logo_2.png'
+import naiellaLogo from '../assets/naiella_web_logo_4.png'
 import aboutBg from '../assets/about_bg.png'
 
 export default function AboutPage() {
@@ -12,17 +12,17 @@ export default function AboutPage() {
         backgroundPosition: 'center',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         padding: '72px 80px',
       }}
     >
       {/* 로고 */}
       <div>
-        <img src={naiellaLogo} alt="NAIELLA" style={{ height: '52px', width: 'auto' }} />
+        <img src={naiellaLogo} alt="NAIELLA" style={{ height: '30px', width: 'auto' }} />
       </div>
 
       {/* 본문 텍스트 */}
-      <div style={{ maxWidth: '680px', marginTop: '80px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <div style={{ maxWidth: '680px', marginTop: '32px', display: 'flex', flexDirection: 'column' }}>
         <p style={{ fontSize: '15px', lineHeight: '1.2', color: '#1a1a1a', marginBottom: '24px', fontFamily: 'sans-serif' }}>
           <strong style={{ fontStyle: 'italic' }}>Naiella</strong> believes in the natural evolution of beauty through the rhythm of nature.
         </p>
@@ -44,7 +44,7 @@ export default function AboutPage() {
       </div>
 
       {/* CEO 서명 */}
-      <div style={{ textAlign: 'right', marginTop: '64px' }}>
+      <div style={{ textAlign: 'right', marginTop: '40px' }}>
         <span style={{ fontSize: '15px', fontFamily: 'sans-serif', color: '#1a1a1a' }}>
           <strong>CEO</strong>&nbsp;&nbsp;Tae Oh Koo
         </span>
