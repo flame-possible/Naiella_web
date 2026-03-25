@@ -38,17 +38,17 @@ export default function HeroSlider() {
   const next = () => setCurrent((c) => (c + 1) % slides.length)
 
   return (
-    <section className="relative w-full overflow-hidden bg-white" style={{ height: '80vh' }}>
+    <section className="relative w-full overflow-hidden bg-white" style={{ height: '92vh' }}>
       {/* Slides */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${current * 100}%)`, height: '80vh' }}
+        style={{ transform: `translateX(-${current * 100}%)`, height: '92vh' }}
       >
         {slides.map((slide, i) => (
           <div
             key={slide.id}
             className="min-w-full flex flex-col items-center overflow-hidden"
-            style={{ height: '80vh' }}
+            style={{ height: '92vh' }}
           >
             {/* 이미지 */}
             <img
@@ -57,7 +57,7 @@ export default function HeroSlider() {
               className="w-full pointer-events-none flex-shrink-0"
               style={slide.text
                 ? { height: '42vh', objectFit: 'cover', objectPosition: 'center' }
-                : { height: '80vh', objectFit: 'contain', objectPosition: 'top' }
+                : { height: '92vh', objectFit: 'contain', objectPosition: 'top' }
               }
             />
 
