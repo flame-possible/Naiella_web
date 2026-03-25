@@ -16,11 +16,13 @@ With thoughtfully selected ingredients, balanced formulations, and a commitment 
     id: 2,
     image: section2,
     text: null,
+    fit: 'contain',
   },
   {
     id: 3,
     image: section3,
     text: null,
+    fit: 'cover',
   },
 ]
 
@@ -56,8 +58,8 @@ export default function HeroSlider() {
               alt=""
               className="w-full pointer-events-none flex-shrink-0"
               style={slide.text
-                ? { height: '42vh', objectFit: 'cover', objectPosition: 'center' }
-                : { height: '92vh', objectFit: 'contain', objectPosition: 'top' }
+                ? { height: '42vh', objectFit: 'contain', objectPosition: 'center', background: 'white' }
+                : { height: '92vh', objectFit: slide.fit ?? 'cover', objectPosition: 'center' }
               }
             />
 

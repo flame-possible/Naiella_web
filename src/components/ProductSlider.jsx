@@ -144,7 +144,7 @@ export default function ProductSlider() {
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#6a7a5c')}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#7d8f6e')}
             >
-              Add to Cart
+              View Product
             </button>
           </div>
         ))}
