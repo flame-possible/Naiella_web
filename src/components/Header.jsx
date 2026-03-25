@@ -20,7 +20,7 @@ export default function Header() {
           <Link to="/about" className="text-sm tracking-widest text-gray-700 hover:text-black transition-colors duration-200">
             About
           </Link>
-          <Link to="/#product" className="text-sm tracking-widest text-gray-700 hover:text-black transition-colors duration-200">
+          <Link to="/products" className="text-sm tracking-widest text-gray-700 hover:text-black transition-colors duration-200">
             Product
           </Link>
           <a href="#contact" onClick={scrollToContact} className="text-sm tracking-widest text-gray-700 hover:text-black transition-colors duration-200">

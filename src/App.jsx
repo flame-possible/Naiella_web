@@ -8,6 +8,7 @@ import Section5 from './components/Section5'
 import Footer from './components/Footer'
 import AboutPage from './components/AboutPage'
 import ProductDetail from './components/ProductDetail'
+import ProductsPage from './components/ProductsPage'
 import ScrollToTop from './components/ScrollToTop'
 import './index.css'
 
@@ -20,6 +21,16 @@ function Home() {
       <ProductSlider />
       <VideoSlider />
       <Section5 />
+      <Footer />
+    </div>
+  )
+}
+
+function Products() {
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <ProductsPage />
       <Footer />
     </div>
   )
@@ -52,6 +63,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<ProductPage />} />
       </Routes>
     </BrowserRouter>
