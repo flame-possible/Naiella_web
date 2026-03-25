@@ -1,14 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
-import itemBox from '../assets/Item_Box.png'
-
-const products = [
-  { id: 1, name: 'Root-Infused Cleanser', desc: 'Revitalizing bio-energy concentrate for radiant skin.', price: '$120' },
-  { id: 2, name: 'Aqueous Rhythm Toner', desc: 'Lightweight floral extract for deep hydration.', price: '$95' },
-  { id: 3, name: 'Fluid Balance Emulsion', desc: 'Rich molecular barrier cream for lasting moisture.', price: '$140' },
-  { id: 4, name: 'Vital Essence Serum', desc: 'Calming botanical toner to balance skin rhythm.', price: '$75' },
-  { id: 5, name: 'Deep Barrier Moisturizing Cream', desc: 'Ultra-fine botanical oil for luminous finish.', price: '$110' },
-  { id: 6, name: 'Active Vitalizing Collagen Gel Mask', desc: 'Mild foam cleanser with natural botanical blend.', price: '$65' },
-]
+import { Link } from 'react-router-dom'
+import products from '../data/products'
 
 export default function ProductSlider() {
   const trackRef = useRef(null)
@@ -108,7 +100,7 @@ export default function ProductSlider() {
             {/* 상품 이미지 */}
             <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden', marginBottom: '16px', backgroundColor: '#e8e8e8', flexShrink: 0 }}>
               <img
-                src={itemBox}
+                src={product.image}
                 alt={product.name}
                 draggable={false}
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block', pointerEvents: 'none' }}
@@ -127,8 +119,10 @@ export default function ProductSlider() {
                 {product.price}
               </p>
             </div>
-            <button
+            <Link
+              to={`/product/${product.id}`}
               style={{
+                display: 'block',
                 width: '100%',
                 padding: '12px',
                 backgroundColor: '#7d8f6e',
@@ -136,14 +130,15 @@ export default function ProductSlider() {
                 fontSize: '11px',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                border: 'none',
-                cursor: 'pointer',
+                textAlign: 'center',
+                textDecoration: 'none',
+                boxSizing: 'border-box',
               }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#6a7a5c')}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#7d8f6e')}
             >
               View Product
-            </button>
+            </Link>
           </div>
         ))}
       </div>

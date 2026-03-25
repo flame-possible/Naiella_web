@@ -7,6 +7,8 @@ import VideoSlider from './components/VideoSlider'
 import Section5 from './components/Section5'
 import Footer from './components/Footer'
 import AboutPage from './components/AboutPage'
+import ProductDetail from './components/ProductDetail'
+import ScrollToTop from './components/ScrollToTop'
 import './index.css'
 
 function Home() {
@@ -18,6 +20,16 @@ function Home() {
       <ProductSlider />
       <VideoSlider />
       <Section5 />
+      <Footer />
+    </div>
+  )
+}
+
+function ProductPage() {
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <ProductDetail />
       <Footer />
     </div>
   )
@@ -36,9 +48,11 @@ function About() {
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/product/:id" element={<ProductPage />} />
       </Routes>
     </BrowserRouter>
   )
