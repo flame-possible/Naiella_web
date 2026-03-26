@@ -62,9 +62,9 @@ export default function ProductSlider() {
   }
 
   return (
-    <section className="relative w-full bg-white" style={{ padding: '72px 0 80px' }}>
+    <section className="product-slider-section relative w-full bg-white" style={{ padding: '72px 0 80px' }}>
       {/* 섹션 헤더 */}
-      <div style={{ padding: '0 80px', marginBottom: '48px' }}>
+      <div className="product-slider-header" style={{ padding: '0 80px', marginBottom: '48px' }}>
         <p style={{ fontSize: '12px', letterSpacing: '0.15em', color: '#888', textTransform: 'uppercase', marginBottom: '8px', fontFamily: "'Bodoni Moda', serif" }}>
           Collection
         </p>
@@ -95,28 +95,29 @@ export default function ProductSlider() {
         {products.map((product) => (
           <div
             key={product.id}
-            style={{ flexShrink: 0, width: 'calc(25% - 18px)', display: 'flex', flexDirection: 'column' }}
+            className="product-slider-card"
+          style={{ flexShrink: 0, width: 'calc(25% - 18px)', display: 'flex', flexDirection: 'column' }}
           >
             {/* 상품 이미지 */}
-            <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden', marginBottom: '16px', backgroundColor: '#e8e8e8', flexShrink: 0 }}>
+            <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden', marginBottom: '16px', backgroundColor: '#ffffff', flexShrink: 0 }}>
               <img
                 src={product.image}
                 alt={product.name}
                 draggable={false}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block', pointerEvents: 'none' }}
+                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', pointerEvents: 'none' }}
               />
             </div>
 
             {/* 상품 정보 - 고정 높이 영역 */}
             <div style={{ height: '140px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-              <h3 style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '22px', fontWeight: '500', color: '#1a1a1a', marginBottom: '6px', flexShrink: 0 }}>
+              <h3 style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '22px', fontWeight: '600', color: '#1a1a1a', marginBottom: '6px', flexShrink: 0 }}>
                 {product.name}
               </h3>
-              <p style={{ fontSize: '13px', color: '#666', lineHeight: '1.5', marginBottom: '10px', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+              <p style={{ fontSize: '11px', color: '#666', lineHeight: '1.5', marginBottom: '10px', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
                 {product.desc}
               </p>
-              <p style={{ fontSize: '15px', fontWeight: '600', color: '#1a1a1a', marginTop: 'auto', marginBottom: '16px', flexShrink: 0 }}>
-                {product.price}
+              <p style={{ fontSize: '15px', fontWeight: '500', color: '#1a1a1a', marginTop: 'auto', marginBottom: '16px', flexShrink: 0 }}>
+                {product.volume} &nbsp;|&nbsp; {product.price}
               </p>
             </div>
             <Link

@@ -20,52 +20,49 @@ export default function ProductDetail() {
 
   const accordionSections = [
     {
-      key: 'about',
-      label: 'About This Product',
-      content: <p style={{ fontSize: '14px', lineHeight: '1.8', color: '#555', fontFamily: 'sans-serif' }}>{product.fullDesc}</p>,
-    },
-    {
       key: 'howto',
       label: 'How to Use',
       content: <p style={{ fontSize: '14px', lineHeight: '1.8', color: '#555', fontFamily: 'sans-serif' }}>{product.howToUse}</p>,
     },
     {
-      key: 'ingredients',
-      label: 'Key Ingredients',
+      key: 'efficacy',
+      label: 'Efficacy',
       content: (
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-          {product.keyIngredients.map((ing) => (
-            <li key={ing.name} style={{ marginBottom: '16px' }}>
-              <p style={{ fontSize: '13px', fontWeight: '600', color: '#1a1a1a', marginBottom: '4px', fontFamily: 'sans-serif' }}>{ing.name}</p>
-              <p style={{ fontSize: '13px', color: '#888', lineHeight: '1.6', fontFamily: 'sans-serif' }}>{ing.desc}</p>
-            </li>
+        <div>
+          {product.efficacy.split('\n').map((line, i) => (
+            <p key={i} style={{ fontSize: '14px', lineHeight: '1.8', color: '#555', fontFamily: 'sans-serif' }}>{line}</p>
           ))}
-        </ul>
+        </div>
       ),
+    },
+    {
+      key: 'ingredients',
+      label: 'Ingredients',
+      content: <p style={{ fontSize: '13px', lineHeight: '1.9', color: '#555', fontFamily: 'sans-serif' }}>{product.ingredients}</p>,
     },
   ]
 
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 80px 100px' }}>
+    <div className="product-detail-wrap" style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 80px 100px' }}>
 
       {/* Breadcrumb */}
       <p style={{ fontSize: '12px', color: '#aaa', letterSpacing: '0.08em', marginBottom: '48px', fontFamily: 'sans-serif' }}>
         <Link to="/" style={{ color: '#aaa', textDecoration: 'none' }}>Home</Link>
         {' '}/{' '}
-        <span style={{ color: '#aaa' }}>Product</span>
+        <Link to="/products" style={{ color: '#aaa', textDecoration: 'none' }}>Products</Link>
         {' '}/{' '}
         <span style={{ color: '#1a1a1a' }}>{product.name}</span>
       </p>
 
       {/* Main: image + info */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'flex-start' }}>
+      <div className="product-detail-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'flex-start' }}>
 
         {/* 이미지 */}
-        <div style={{ aspectRatio: '3/4', overflow: 'hidden', backgroundColor: '#f5f5f5' }}>
+        <div style={{ aspectRatio: '3/4', overflow: 'hidden', backgroundColor: '#ffffff' }}>
           <img
             src={product.image}
             alt={product.name}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
+            style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
           />
         </div>
 
@@ -77,6 +74,9 @@ export default function ProductDetail() {
           <h1 style={{ fontSize: 'clamp(28px, 3vw, 42px)', fontFamily: "'Bodoni Moda', serif", fontWeight: '500', color: '#1a1a1a', lineHeight: '1.15', marginBottom: '20px' }}>
             {product.name}
           </h1>
+          <p style={{ fontSize: '15px', color: '#888', fontFamily: 'sans-serif', marginBottom: '8px' }}>
+            {product.volume}
+          </p>
           <p style={{ fontSize: '22px', fontFamily: "'Bodoni Moda', serif", color: '#1a1a1a', marginBottom: '28px' }}>
             {product.price}
           </p>

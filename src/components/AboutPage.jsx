@@ -4,6 +4,7 @@ import aboutBg from '../assets/about_bg.png'
 export default function AboutPage() {
   return (
     <section
+      className="about-wrap"
       style={{
         position: 'relative',
         minHeight: '100vh',

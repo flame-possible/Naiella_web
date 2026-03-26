@@ -1,15 +1,15 @@
 export default function Section2() {
   return (
-    <section className="w-full flex items-center" style={{ marginTop: '40px' }}>
+    <section className="section2-wrap w-full flex items-center" style={{ marginTop: '40px' }}>
       {/* 왼쪽 텍스트 */}
-      <div className="w-1/2 flex items-start" style={{ padding: '48px 56px 48px 48px', fontFamily: "'Bodoni Moda', serif" }}>
+      <div className="section2-left w-1/2 flex items-start" style={{ padding: '48px 56px 48px 48px', fontFamily: "'Bodoni Moda', serif" }}>
         <p style={{ fontSize: 'clamp(36px, 5vw, 72px)', lineHeight: '1', color: '#c0bdb8', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.01em' }}>
           Supporting the skin's natural rhythm, not forcing change
         </p>
       </div>
 
       {/* 오른쪽 텍스트 */}
-      <div className="w-1/2" style={{ padding: '48px 48px 48px 56px', fontFamily: "'Bodoni Moda', serif",  }}>
+      <div className="section2-right w-1/2" style={{ padding: '48px 48px 48px 56px', fontFamily: "'Bodoni Moda', serif" }}>
         {/* 상단 3줄 */}
         <div style={{ marginBottom: '40px' }}>
           <p style={{ fontSize: '15px', lineHeight: '1.4', color: '#000000', fontWeight: '500' }}>Bio-engineered ritual curated for the refined skin.</p>

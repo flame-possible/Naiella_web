@@ -1,89 +1,89 @@
-import itemBox from '../assets/Item_Box.png'
+import product01 from '../assets/product_01.png'
+import product02 from '../assets/product_02.png'
+import product03 from '../assets/product_03.png'
+import product04 from '../assets/product_04.png'
+import product05 from '../assets/product_05.png'
+import product06 from '../assets/product_06.png'
 
 const products = [
   {
     id: 1,
     name: 'Root-Infused Cleanser',
-    desc: 'Revitalizing bio-energy concentrate for radiant skin.',
-    price: '$120',
-    image: itemBox,
-    fullDesc: 'A gentle yet effective cleanser rooted in botanical intelligence. Formulated with bio-active plant extracts, it removes impurities while preserving the skin\'s natural moisture barrier. Leaves skin clean, balanced, and softly luminous.',
-    howToUse: 'Apply a small amount to damp skin and massage in gentle circular motions. Rinse thoroughly with lukewarm water. Use morning and evening.',
-    keyIngredients: [
-      { name: 'Centella Asiatica Extract', desc: 'Soothes and strengthens the skin barrier while reducing redness.' },
-      { name: 'Botanical Amino Complex', desc: 'Gently cleanses without stripping natural oils.' },
-      { name: 'Green Tea Polyphenols', desc: 'Antioxidant-rich protection against environmental stressors.' },
-    ],
+    desc: 'A gentle cleanser that removes skin impurities while leaving a moist, protective hydration layer.',
+    price: '$17',
+    volume: '120 mL / 4.06 fl.oz',
+    image: product01,
+    efficacy: `- Low-irritation cleansing — Fine foam based on stearic acid and myristic acid cleanses the skin thoroughly.
+- Moisture & elasticity care — Glycerin and hydrolyzed collagen help relieve dryness even after washing.
+- Soothing & protection — Extracts of allantoin, panthenol, carrot, blueberry, radish, spinach, and cabbage help keep the skin calm and comfortable.`,
+    howToUse: `Dispense an appropriate amount onto your hands and lather well. Gently massage over the entire face, then rinse thoroughly with lukewarm water. Avoid the eye area.`,
+    ingredients: `Water, Stearic Acid, Lauric Acid, Myristic Acid, Potassium Hydroxide, Glycerin, Cocamidopropyl Betaine, PEG-100 Stearate, Beeswax, Hydrolyzed Collagen, Daucus Carota Sativa (Carrot) Root Extract, Vaccinium Angustifolium (Blueberry) Fruit Extract, Raphanus Sativus (Radish) Root Extract, Spinacia Oleracea (Spinach) Leaf Extract, Brassica Oleracea Capitata (Cabbage) Leaf Extract, Glyceryl Stearate, Glycol Distearate, Glycol Stearate, Sodium Chloride, Caprylyl Glycol, Phenoxyethanol, Butylene Glycol, Allantoin, Panthenol, 1,2-Hexanediol, Disodium EDTA, Fragrance.`,
   },
   {
     id: 2,
     name: 'Aqueous Rhythm Toner',
-    desc: 'Lightweight floral extract for deep hydration.',
-    price: '$95',
-    image: itemBox,
-    fullDesc: 'A hydrating toner that works in harmony with the skin\'s natural moisture cycle. Infused with floral water and plant-derived humectants, it replenishes and balances the skin\'s pH while preparing it to absorb subsequent skincare steps.',
-    howToUse: 'After cleansing, apply to a cotton pad or pour directly into palms. Gently press into skin until fully absorbed. Layer for deeper hydration.',
-    keyIngredients: [
-      { name: 'Rose Floral Water', desc: 'Hydrates and tones while providing a delicate botanical scent.' },
-      { name: 'Hyaluronic Acid', desc: 'Draws moisture into the skin for immediate and lasting hydration.' },
-      { name: 'Niacinamide', desc: 'Minimizes pores and evens skin tone over time.' },
-    ],
+    desc: 'A hydrating toner that refines the skin\'s texture after cleansing and boosts moisture absorption.',
+    price: '$20',
+    volume: '300 mL / 10.14 fl.oz',
+    image: product02,
+    efficacy: `- Enhanced moisture layering — Three types of hyaluronic acid and glycerin deliver quick and deep hydration to the skin.
+- Soothing care — Centella asiatica, matricaria, allantoin, and panthenol help calm and comfort irritated skin.
+- Plant extract complex — Carrot, blueberry, radish, spinach, and cabbage extracts help promote a vibrant and well-balanced complexion.`,
+    howToUse: `After cleansing, apply an appropriate amount to a cotton pad or your palms. Gently smooth over the skin following its texture, then pat lightly to aid absorption.`,
+    ingredients: `Aqua (Water), Glycerin, Propanediol, 1,2-Hexanediol, Panthenol,  PEG-60 Hydrogenated Castor Oil, Sodium Citrate,  Butylene Glycol, Sodium Hyaluronate,  Ethylhexylglycerin,  Betaine, Allantoin, Caprylyl Glycol,  Citric Acid, Laminaria Japonica Extract, Chamomilla Recutita (Matricaria) Flower Extract, Centella Asiatica Extract, Disodium EDTA,  Hydrolyzed Glycosaminoglycans, Hydrolyzed Hyaluronic Acid, Daucus Carota Sativa (Carrot) Root Extract, Vaccinium Angustifolium (Blueberry) Fruit Extract, Raphanus Sativus (Radish) Root Extract, Spinacia Oleracea (Spinach) Leaf Extract, Brassica Oleracea Capitata (Cabbage) Leaf Extract, Aloe Barbadensis Leaf Extract,  Hydrogenated Lecithin, Ceramide NP, Linoleic Acid, Macadamia Integrifolia Seed Oil, Squalane,  Cholesterol, Brassica Campestris (Rapeseed) Sterols, Hyaluronic Acid, Carthamus Tinctorius (Safflower) Seed Oil, Raspberry Ketone.`,
   },
   {
     id: 3,
     name: 'Fluid Balance Emulsion',
-    desc: 'Rich molecular barrier cream for lasting moisture.',
-    price: '$140',
-    image: itemBox,
-    fullDesc: 'A lightweight yet deeply nourishing emulsion that reinforces the skin\'s lipid barrier. Its fluid texture melts seamlessly into skin, delivering lasting moisture and a refined, velvety finish.',
-    howToUse: 'After toner, apply 2–3 drops to fingertips and smooth over face and neck. Pat gently until absorbed. Use morning and evening.',
-    keyIngredients: [
-      { name: 'Ceramide Complex', desc: 'Restores and fortifies the natural skin barrier.' },
-      { name: 'Squalane', desc: 'Lightweight emollient that mimics the skin\'s natural sebum.' },
-      { name: 'Lotus Root Extract', desc: 'Brightens and refines skin texture with continued use.' },
-    ],
+    desc: 'A lightweight yet deeply moisturizing daily nutrition lotion.',
+    price: '$27',
+    volume: '130 mL / 4.39 fl.oz',
+    image: product03,
+    efficacy: `- Moisture & nutrition balance — Squalane, ceramide, and sunflower seed oil deliver a balanced supply of hydration and nourishment.
+- Soothing & protection — Allantoin, panthenol, and Centella asiatica extract help keep sensitive skin calm and comfortable.
+- Botanical moisturizing energy — Carrot, blueberry, radish, spinach, and cabbage extracts help maintain a clear and radiant complexion.`,
+    howToUse: `After cleansing, gently apply an appropriate amount to the face and neck and allow it to absorb. You may use it after toner or serum as part of your skincare routine.`,
+    ingredients: `Aqua (Water), Glycerin, Propanediol, Dimethicone, Cetearyl Ethylhexanoate,  1,2-Hexanediol, Helianthus Annuus (Sunflower) Seed Oil, Cetearyl Alcohol,  Glyceryl Glucoside, Diisostearyl Malate, Hydrolyzed Collagen, Daucus Carota Sativa (Carrot) Root Extract, Vaccinium Angustifolium (Blueberry) Fruit Extract, Raphanus Sativus (Radish) Root Extract, Spinacia Oleracea (Spinach) Leaf Extract, Brassica Oleracea Capitata (Cabbage) Leaf Extract, Glyceryl Stearate SE,  Acrylates/Ammonium Acrylate Copolymer, Acrylates Copolymer, Tromethamine,  Allantoin, Panthenol, Ethylhexylglycerin, Xanthan Gum, Caprylyl Glycol, Ceramide NP, Hydrogenated Lecithin, Madecassoside, Asiaticoside,  Sodium Hyaluronate, Disodium EDTA, Fragrance.`,
   },
   {
     id: 4,
     name: 'Vital Essence Serum',
-    desc: 'Calming botanical toner to balance skin rhythm.',
-    price: '$75',
-    image: itemBox,
-    fullDesc: 'A concentrated serum powered by bio-inspired actives. Designed to target visible signs of fatigue and environmental stress, it restores vitality and supports the skin\'s natural renewal process for a radiant, healthy glow.',
-    howToUse: 'Apply 3–4 drops to clean skin before moisturizer. Gently press into face, neck, and décolletage. Best used morning and evening.',
-    keyIngredients: [
-      { name: 'Bakuchiol', desc: 'Plant-derived retinol alternative that smooths and firms without irritation.' },
-      { name: 'Vitamin C Derivative', desc: 'Brightens and protects against oxidative damage.' },
-      { name: 'Peptide Blend', desc: 'Supports collagen synthesis for firmer, more resilient skin.' },
-    ],
+    desc: 'A deeply hydrating serum formulated with concentrated moisture ingredients that penetrate the skin for long-lasting hydration.',
+    price: '$30',
+    volume: '50 mL / 1.69 fl.oz',
+    image: product04,
+    efficacy: `- Multi-hyaluronic acid moisture delivery — High-, medium-, and low-molecular-weight hyaluronic acids, along with a hyaluronic crosspolymer, help build a strong, multi-layered moisture barrier.
+- Elasticity & hydration synergy — Glycosaminoglycans, trehalose, and betaine work together to keep the skin supple, firm, and moisturized.
+- Soothing botanical complex — Centella asiatica, matricaria, and a blend of botanical extracts help care for skin balance and comfort.`,
+    howToUse: `After cleansing, apply an appropriate amount evenly over the entire face and allow it to absorb. You may also use it after toner as part of your skincare routine.`,
+    ingredients: `Aqua (Water), Butylene Glycol, Glycerin, 1,2-Hexanediol, Dipropylene Glycol, Daucus Carota Sativa (Carrot) Root Extract, Vaccinium Angustifolium (Blueberry) Fruit Extract, Raphanus Sativus (Radish) Root Extract, Spinacia Oleracea (Spinach) Leaf Extract, Brassica Oleracea Capitata (Cabbage) Leaf Extract,  Panthenol, Arginine, Carbomer, Polyglyceryl-10 Laurate,  Polyglyceryl-4 Laurate, Sodium Hyaluronate, Betaine, Allantoin,  Xanthan Gum, Caprylyl Glycol, Trehalose, Laminaria Japonica Extract, Chamomilla Recutita (Matricaria) Flower Extract, Centella Asiatica Extract, Disodium EDTA, Propanediol,  Sodium Hyaluronate Crosspolymer, Hydrolyzed Glycosaminoglycans,  Benzyl Glycol, Hydrolyzed Hyaluronic Acid,  Madecassoside, Asiaticoside, Ethylhexylglycerin,  Hyaluronic Acid, Raspberry Ketone.`,
   },
   {
     id: 5,
     name: 'Deep Barrier Moisturizing Cream',
-    desc: 'Ultra-fine botanical oil for luminous finish.',
-    price: '$110',
-    image: itemBox,
-    fullDesc: 'A rich, enveloping cream that delivers profound moisture to dry and compromised skin. Its molecular complex works deep within the skin layers to reinforce density and resilience, while the surface stays smooth and radiant.',
-    howToUse: 'As the final step in your routine, warm a small amount between fingertips and press gently into skin. Use morning and/or evening.',
-    keyIngredients: [
-      { name: 'Shea Butter', desc: 'Deeply nourishes and softens while sealing in moisture.' },
-      { name: 'Madecassoside', desc: 'Calms irritation and accelerates skin recovery.' },
-      { name: 'Sea Buckthorn Oil', desc: 'Rich in omega fatty acids for intensive barrier repair.' },
-    ],
+    desc: 'A high-moisture cream that forms a protective hydration barrier to keep the skin moisturized all day.',
+    price: '$27',
+    volume: '50 mL / 1.69 fl.oz',
+    image: product05,
+    efficacy: `- Moisture-locking barrier — Squalane, sunflower seed oil, ceramide NP, cholesterol, and linoleic acid help build a strong and lasting moisture barrier.
+- Soft hydrating texture — Glycerin, trehalose, and betaine help leave the skin smooth, supple, and deeply hydrated.
+- Botanical extract complex — A blend of plant-derived ingredients supports skin vitality and balance.`,
+    howToUse: `As the final step of your skincare routine, apply an appropriate amount evenly over the entire face and allow it to absorb.`,
+    ingredients: `Aqua (Water), Glycerin, Butylene Glycol, Squalane, 1,2-Hexanediol,  Cetearyl Alcohol, Caprylyl Methicone, Helianthus Annuus (Sunflower) Seed Oil, Daucus Carota Sativa (Carrot) Root Extract, Vaccinium Angustifolium (Blueberry) Fruit Extract, Raphanus Sativus (Radish) Root Extract, Spinacia Oleracea (Spinach) Leaf Extract, Brassica Oleracea Capitata (Cabbage) Leaf Extract,  Glyceryl Stearate SE, Arginine, Carbomer,  Glyceryl Stearate, Panthenol, Betaine, Allantoin,  Ethylhexylglycerin, Caprylyl Glycol, Trehalose,  Disodium EDTA, Sodium Hyaluronate, Hydrogenated Lecithin,  Ceramide NP, Linoleic Acid, Macadamia Integrifolia Seed Oil,  Cholesterol, Brassica Campestris (Rapeseed) Sterols, Carthamus Tinctorius (Safflower) Seed Oil, Raspberry Ketone.`,
   },
   {
     id: 6,
     name: 'Active Vitalizing Collagen Gel Mask',
-    desc: 'Mild foam cleanser with natural botanical blend.',
-    price: '$65',
-    image: itemBox,
-    fullDesc: 'An intensive treatment mask infused with marine collagen and botanical actives. The cooling gel texture delivers an immediate surge of hydration while firming and plumping skin for a visibly revitalized complexion.',
-    howToUse: 'Apply a generous layer to clean, dry skin. Leave on for 15–20 minutes. Remove with a damp cloth or rinse thoroughly. Use 2–3 times per week.',
-    keyIngredients: [
-      { name: 'Marine Collagen', desc: 'Plumps and firms while improving skin elasticity.' },
-      { name: 'Aloe Vera Gel', desc: 'Soothes, cools, and deeply hydrates the skin.' },
-      { name: 'Licorice Root Extract', desc: 'Brightens and evens skin tone with continued use.' },
-    ],
+    desc: 'A high-moisture sheet mask infused with a rich essence that adheres closely to the skin, delivering instant hydration.',
+    price: '$25',
+    volume: '25 mL x 5 ea',
+    image: product06,
+    efficacy: `- Collagen moisture recharge — Hydrolyzed collagen and three types of hyaluronic acid provide deep, lasting hydration.
+- Soothing & barrier care — Centella asiatica, matricaria, allantoin, and panthenol help relieve skin stress and support a healthy skin barrier.
+- Botanical extract complex — A blend of plant-derived ingredients helps maintain skin vitality and balance.
+- Provides a firming, lifting effect for a more sculpted and youthful-looking complexion.`,
+    howToUse: `After cleansing, prepare the skin with toner, then apply the mask evenly over the face. Remove after 10–20 minutes and gently pat the remaining essence until absorbed.`,
+    ingredients: `Aqua (Water), Glycerin, Butylene Glycol, Panthenol, 1,2-Hexanediol, Daucus Carota Sativa (Carrot) Root Extract, Vaccinium Angustifolium (Blueberry) Fruit Extract, Raphanus Sativus (Radish) Root Extract, Spinacia Oleracea (Spinach) Leaf Extract, Brassica Oleracea Capitata (Cabbage) Leaf Extract, Aloe Barbadensis Leaf Extract, PEG-60 Hydrogenated Castor Oil, Hydroxyethylcellulose, Sodium Citrate, Camellia Sinensis Leaf Extract, Ethylhexylglycerin,  Betaine, Allantoin, Caprylyl Glycol, Citric Acid, Laminaria Japonica Extract, Chamomilla Recutita (Matricaria) Flower Extract, Centella Asiatica Extract, Sodium Hyaluronate, Disodium EDTA,  Sodium Nitrate, Hydrolyzed Glycosaminoglycans, Benzyl Glycol, Hydrolyzed Hyaluronic Acid, Madecassoside, Asiaticoside, Hydrogenated Lecithin, Ceramide NP, Linoleic Acid, Macadamia Integrifolia Seed Oil, Squalane, Cholesterol, Brassica Campestris (Rapeseed) Sterols, Hyaluronic Acid, Carthamus Tinctorius (Safflower) Seed Oil, Raspberry Ketone.`,
   },
 ]
 

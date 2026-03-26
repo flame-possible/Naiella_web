@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer id="contact" style={{ backgroundColor: '#fff', color: '#333', fontFamily: "'Bodoni Moda', serif", borderTop: '1px solid #e5e5e5' }}>
 
-      <div style={{ padding: '64px 60px 48px' }}>
+      <div className="footer-wrap" style={{ padding: '64px 60px 48px' }}>
         {/* 로고 2개 */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '10px', marginBottom: '16px' }}>
           <img src={naiellaLogo} alt="NAIELLA" style={{ height: '56px', width: 'auto' }} />

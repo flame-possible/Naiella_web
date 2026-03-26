@@ -3,6 +3,7 @@ import logo from '../assets/naiella_web_logo_2.png'
 import section1 from '../assets/section_1_1.png'
 import section2 from '../assets/section_1_2.png'
 import section3 from '../assets/section_1_3.png'
+import section3overlay from '../assets/section_1_3_1.png'
 
 const slides = [
   {
@@ -21,6 +22,7 @@ With thoughtfully selected ingredients, balanced formulations, and a commitment 
   {
     id: 3,
     image: section3,
+    overlay: section3overlay,
     text: null,
     fit: 'cover',
   },
@@ -49,7 +51,7 @@ export default function HeroSlider() {
         {slides.map((slide, i) => (
           <div
             key={slide.id}
-            className="min-w-full flex flex-col items-center overflow-hidden"
+            className="min-w-full flex flex-col items-center overflow-hidden relative"
             style={{ height: '92vh' }}
           >
             {/* 이미지 */}
@@ -58,10 +60,20 @@ export default function HeroSlider() {
               alt=""
               className="w-full pointer-events-none flex-shrink-0"
               style={slide.text
-                ? { height: '42vh', objectFit: 'contain', objectPosition: 'center', background: 'white' }
+                ? { height: '42vh', objectFit: 'cover', objectPosition: 'center', background: 'white' }
                 : { height: '92vh', objectFit: slide.fit ?? 'cover', objectPosition: 'center' }
               }
             />
+
+            {/* 오버레이 이미지 (가운데 배치) */}
+            {slide.overlay && (
+              <img
+                src={slide.overlay}
+                alt=""
+                className="pointer-events-none"
+                style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '85%', maxWidth: '1000px' }}
+              />
+            )}
 
             {/* 로고 + 텍스트 콘텐츠 (이미지 전용 슬라이드는 생략) */}
             {slide.text && (
