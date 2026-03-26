@@ -18,7 +18,7 @@ export default function ProductsPage() {
       {/* 상품 그리드 */}
       <div className="products-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px 32px' }}>
         {products.map((product) => (
-          <div key={product.id} style={{ display: 'flex', flexDirection: 'column' }}>
+          <div key={product.id} style={{ display: 'flex', flexDirection: 'column', alignSelf: 'stretch' }}>
             {/* 이미지 */}
             <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden', marginBottom: '16px', backgroundColor: '#ffffff' }}>
               <img
@@ -29,14 +29,14 @@ export default function ProductsPage() {
             </div>
 
             {/* 정보 */}
-            <div style={{ height: '140px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-              <h3 style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '22px', fontWeight: '600', color: '#1a1a1a', marginBottom: '6px', flexShrink: 0 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+              <h3 style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '22px', fontWeight: '600', color: '#1a1a1a', marginBottom: '6px' }}>
                 {product.name}
               </h3>
-              <p style={{ fontSize: '13px', color: '#666', lineHeight: '1.5', marginBottom: '10px', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+              <p style={{ fontSize: '13px', color: '#666', lineHeight: '1.5', marginBottom: '10px' }}>
                 {product.desc}
               </p>
-              <p style={{ fontSize: '15px', fontWeight: '500', color: '#1a1a1a', marginTop: 'auto', marginBottom: '16px', flexShrink: 0 }}>
+              <p style={{ fontSize: '15px', fontWeight: '500', color: '#1a1a1a', marginTop: 'auto', marginBottom: '16px' }}>
                 {product.volume} &nbsp;|&nbsp; {product.price}
               </p>
             </div>

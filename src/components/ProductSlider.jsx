@@ -109,14 +109,14 @@ export default function ProductSlider() {
             </div>
 
             {/* 상품 정보 - 고정 높이 영역 */}
-            <div style={{ height: '140px', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-              <h3 style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '22px', fontWeight: '600', color: '#1a1a1a', marginBottom: '6px', flexShrink: 0 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+              <h3 style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '19px', fontWeight: '600', color: '#1a1a1a', marginBottom: '6px' }}>
                 {product.name}
               </h3>
-              <p style={{ fontSize: '11px', color: '#666', lineHeight: '1.5', marginBottom: '10px', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+              <p style={{ fontSize: '11px', color: '#666', lineHeight: '1.5', marginBottom: '10px' }}>
                 {product.desc}
               </p>
-              <p style={{ fontSize: '15px', fontWeight: '500', color: '#1a1a1a', marginTop: 'auto', marginBottom: '16px', flexShrink: 0 }}>
+              <p style={{ fontSize: '14px', fontWeight: '500', color: '#1a1a1a', marginTop: 'auto', marginBottom: '16px' }}>
                 {product.volume} &nbsp;|&nbsp; {product.price}
               </p>
             </div>
