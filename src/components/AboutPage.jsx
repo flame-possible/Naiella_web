@@ -7,7 +7,6 @@ export default function AboutPage() {
       className="about-wrap"
       style={{
         position: 'relative',
-        minHeight: '100vh',
         backgroundImage: `url(${aboutBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
