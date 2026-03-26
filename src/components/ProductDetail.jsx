@@ -84,27 +84,6 @@ export default function ProductDetail() {
             {product.desc}
           </p>
 
-          {/* Add to Cart 버튼 */}
-          <button
-            style={{
-              width: '100%',
-              padding: '16px',
-              backgroundColor: '#7d8f6e',
-              color: '#fff',
-              fontSize: '12px',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              border: 'none',
-              cursor: 'pointer',
-              marginBottom: '12px',
-              fontFamily: "'Bodoni Moda', serif",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#6a7a5c')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#7d8f6e')}
-          >
-            Add to Cart
-          </button>
-
           {/* 아코디언 */}
           <div style={{ marginTop: '40px', borderTop: '1px solid #e5e5e5' }}>
             {accordionSections.map(({ key, label, content }) => (
