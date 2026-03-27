@@ -20,6 +20,7 @@ export default function ProductDetail() {
   const toggle = (key) => setOpen(open === key ? null : key)
 
   const images = product.thumbnails && product.thumbnails.length > 0 ? product.thumbnails : [product.image]
+  const otherProducts = products.filter((p) => p.id !== product.id)
 
   const accordionSections = [
     {
@@ -162,6 +163,47 @@ export default function ProductDetail() {
           ))}
         </div>
       )}
+
+      {/* 다른 상품 섹션 */}
+      <div style={{ marginTop: '100px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '40px' }}>
+          <div style={{ flex: 1, height: '1px', backgroundColor: '#e5e5e5' }} />
+          <p style={{ fontSize: '11px', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#aaa', fontFamily: 'sans-serif', whiteSpace: 'nowrap' }}>
+            You May Also Like
+          </p>
+          <div style={{ flex: 1, height: '1px', backgroundColor: '#e5e5e5' }} />
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '24px' }}>
+          {otherProducts.map((p) => (
+            <Link
+              key={p.id}
+              to={`/products/${p.id}`}
+              onClick={() => setSelectedImg(0)}
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              <div style={{ overflow: 'hidden', backgroundColor: '#f7f7f5', aspectRatio: '1/1', marginBottom: '14px' }}>
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', transition: 'transform 0.4s ease' }}
+                  onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.04)'}
+                  onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                />
+              </div>
+              <p style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#aaa', fontFamily: 'sans-serif', marginBottom: '6px' }}>
+                Naiella
+              </p>
+              <p style={{ fontSize: '14px', fontFamily: "'Bodoni Moda', serif", color: '#1a1a1a', lineHeight: '1.3', marginBottom: '6px' }}>
+                {p.name}
+              </p>
+              <p style={{ fontSize: '14px', fontFamily: "'Bodoni Moda', serif", color: '#555' }}>
+                {p.price}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

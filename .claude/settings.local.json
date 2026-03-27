@@ -8,7 +8,15 @@
       "Bash(git push:*)",
       "Bash(gh auth:*)",
       "Bash(git remote:*)",
-      "WebFetch(domain:helloklean.com)"
+      "WebFetch(domain:helloklean.com)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Users/aa/AppData/Roaming/**)",
+      "Read(//c/Users/aa/AppData/Local/**)",
+      "Read(//c/Users/aa/**)",
+      "Bash(winget --version)",
+      "Bash(\"/c/Program Files/nodejs/npm.cmd\" run dev)",
+      "Bash(\"/c/Program Files/nodejs/npm.cmd\" install)",
+      "Bash(export PATH=\"/c/Program Files/nodejs:$PATH\")"
     ]
   }
 }

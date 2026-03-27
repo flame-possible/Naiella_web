@@ -31,17 +31,17 @@ export default function VideoSlider() {
   const next = () => setCurrent((c) => (c + 1) % slides.length)
 
   return (
-    <section className="relative w-full overflow-hidden bg-black" style={{ height: '92vh' }}>
+    <section className="relative w-full bg-black" style={{ overflowX: 'hidden' }}>
       {/* Slides */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${current * 100}%)`, height: '92vh' }}
+        style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {slides.map((slide, i) => (
           <div
             key={slide.id}
             className="min-w-full"
-            style={{ height: '92vh', backgroundColor: '#111' }}
+            style={{ backgroundColor: '#111' }}
           >
             <video
               ref={(el) => (videoRefs.current[i] = el)}
@@ -49,7 +49,7 @@ export default function VideoSlider() {
               muted
               playsInline
               onEnded={next}
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              style={{ width: '100%', height: 'auto', display: 'block' }}
             />
           </div>
         ))}
