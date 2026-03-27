@@ -1,13 +1,31 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import video1 from '../assets/section_4_1.mp4'
+import video2 from '../assets/section_4_2.mp4'
+import video3 from '../assets/section_4_3.mp4'
+import video4 from '../assets/section_4_4.mp4'
 
 const slides = [
-  { id: 1 },
-  { id: 2 },
-  { id: 3 },
+  { id: 1, src: video1 },
+  { id: 2, src: video2 },
+  { id: 3, src: video3 },
+  { id: 4, src: video4 },
 ]
 
 export default function VideoSlider() {
   const [current, setCurrent] = useState(0)
+  const videoRefs = useRef([])
+
+  useEffect(() => {
+    videoRefs.current.forEach((video, i) => {
+      if (!video) return
+      if (i === current) {
+        video.currentTime = 0
+        video.play().catch(() => {})
+      } else {
+        video.pause()
+      }
+    })
+  }, [current])
 
   const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length)
   const next = () => setCurrent((c) => (c + 1) % slides.length)
@@ -19,22 +37,20 @@ export default function VideoSlider() {
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${current * 100}%)`, height: '92vh' }}
       >
-        {slides.map((slide) => (
+        {slides.map((slide, i) => (
           <div
             key={slide.id}
-            className="min-w-full flex items-center justify-center"
+            className="min-w-full"
             style={{ height: '92vh', backgroundColor: '#111' }}
           >
-            {/* 동영상 플레이스홀더 */}
-            <div className="flex flex-col items-center gap-4" style={{ color: '#555' }}>
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                <circle cx="12" cy="12" r="10" />
-                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
-              </svg>
-              <span style={{ fontSize: '13px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-                Video {slide.id}
-              </span>
-            </div>
+            <video
+              ref={(el) => (videoRefs.current[i] = el)}
+              src={slide.src}
+              muted
+              playsInline
+              onEnded={next}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
           </div>
         ))}
       </div>
