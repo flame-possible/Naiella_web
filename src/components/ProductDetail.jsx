@@ -154,7 +154,7 @@ export default function ProductDetail() {
       {product.detailImages && product.detailImages.length > 0 && (
         <div style={{ display: 'grid', gridTemplateColumns: `repeat(${product.detailImages.length}, 1fr)`, gap: '8px', marginTop: '60px' }}>
           {product.detailImages.map((img, i) => (
-            <div key={i} style={{ aspectRatio: '1/1', overflow: 'hidden' }}>
+            <div key={i} style={{ aspectRatio: '1/1', overflow: 'hidden', borderRadius: '16px' }}>
               <img
                 src={img}
                 alt={`${product.name} detail ${i + 1}`}
@@ -183,7 +183,7 @@ export default function ProductDetail() {
               onClick={() => setSelectedImg(0)}
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
-              <div style={{ overflow: 'hidden', backgroundColor: '#f7f7f5', aspectRatio: '1/1', marginBottom: '14px' }}>
+              <div style={{ overflow: 'hidden', backgroundColor: '#f7f7f5', aspectRatio: '1/1', marginBottom: '14px', borderRadius: '16px' }}>
                 <img
                   src={p.image}
                   alt={p.name}
