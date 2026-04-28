@@ -34,9 +34,9 @@ export default function Header() {
       >
         <div style={{ padding: '20px 40px' }} className="w-full flex items-center relative">
           {/* Logo */}
-          <Link to="/" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
+          <a href="/" onClick={() => setMenuOpen(false)}>
             <img src={logo} alt="NAIELLA" className="h-10 w-auto" />
-          </Link>
+          </a>
 
           {/* Navigation - 데스크탑 */}
           <nav className="absolute left-1/2 -translate-x-1/2 items-center gap-10 hidden md:flex">
