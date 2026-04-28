@@ -51,15 +51,18 @@ export default function HeroSlider() {
         {slides.map((slide, i) => (
           <div
             key={slide.id}
-            className="min-w-full relative overflow-hidden"
-            style={{ height: '92vh' }}
+            className="min-w-full flex flex-col items-center relative"
+            style={{ minHeight: '92vh' }}
           >
-            {/* 배경 이미지 */}
+            {/* 이미지 */}
             <img
               src={slide.image}
               alt=""
-              className="w-full h-full pointer-events-none"
-              style={{ objectFit: slide.fit ?? 'cover', objectPosition: 'center' }}
+              className="w-full pointer-events-none flex-shrink-0"
+              style={slide.text
+                ? { height: '42vh', objectFit: 'cover', objectPosition: 'center', background: 'white' }
+                : { height: '92vh', objectFit: slide.fit ?? 'cover', objectPosition: 'center' }
+              }
             />
 
             {/* 오버레이 이미지 (슬라이드 3) */}
@@ -72,51 +75,21 @@ export default function HeroSlider() {
               />
             )}
 
-            {/* 슬라이드 1: 텍스트 오버레이 */}
+            {/* 로고 + 텍스트 콘텐츠 (이미지 전용 슬라이드는 생략) */}
             {slide.text && (
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.50) 100%)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '0 48px',
-                }}
-              >
-                <img
-                  src={logo}
-                  alt="NAIELLA"
-                  style={{ width: 'clamp(120px, 25vw, 360px)', marginBottom: '24px', filter: 'brightness(0) invert(1)' }}
-                />
-                <div style={{ maxWidth: '720px', textAlign: 'center', marginBottom: '36px' }}>
+              <div className="flex flex-col items-center w-full" style={{ paddingTop: '24px', paddingBottom: '48px' }}>
+                <img src={logo} alt="NAIELLA" style={{ width: 'clamp(150px, 35vw, 500px)' }} className="mb-2 flex-shrink-0" />
+                <div className="w-full text-left" style={{ maxWidth: '1200px', padding: '0 48px', marginTop: '24px' }}>
                   {slide.text.split('\n\n').map((para, idx) => (
-                    <p key={idx} style={{ color: 'rgba(255,255,255,0.88)', fontSize: 'clamp(13px, 1.4vw, 16px)', lineHeight: '1.7', fontFamily: "'Bodoni Moda', serif", fontWeight: '500', marginBottom: idx < slide.text.split('\n\n').length - 1 ? '12px' : 0 }}>
-                      {idx === 0 ? <><strong style={{ color: '#fff' }}>Naiella</strong>{para.slice('Naiella'.length)}</> : para}
+                    <p key={idx} className="text-gray-700 mb-3" style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '15px', lineHeight: '1.3', fontWeight: '500' }}>
+                      {idx === 0 ? (
+                        <>
+                          <strong>Naiella</strong>{para.slice('Naiella'.length)}
+                        </>
+                      ) : para}
                     </p>
                   ))}
                 </div>
-                <a
-                  href="/products"
-                  style={{
-                    display: 'inline-block',
-                    padding: '13px 36px',
-                    background: '#FAF9F6',
-                    color: '#2C2C2C',
-                    fontSize: '11px',
-                    letterSpacing: '0.2em',
-                    textTransform: 'uppercase',
-                    textDecoration: 'none',
-                    fontFamily: "'Inter', sans-serif",
-                    transition: 'background 0.2s, color 0.2s',
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = '#2C2C2C'; e.currentTarget.style.color = '#FAF9F6'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = '#FAF9F6'; e.currentTarget.style.color = '#2C2C2C'; }}
-                >
-                  Shop Now
-                </a>
               </div>
             )}
           </div>
