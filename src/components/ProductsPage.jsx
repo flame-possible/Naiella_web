@@ -16,30 +16,14 @@ export default function ProductsPage() {
       </div>
 
       {/* 상품 그리드 */}
-      <div className="products-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px 24px' }}>
+      <div className="products-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '48px 24px' }}>
         {products.map((product) => (
           <Link
             key={product.id}
             to={`/product/${product.id}`}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignSelf: 'stretch',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              boxShadow: '0 1px 6px rgba(0,0,0,0.06)',
-              transition: 'box-shadow 0.2s',
-              padding: '0 0 16px 0',
-              textDecoration: 'none',
-              color: 'inherit',
-              cursor: 'pointer',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.12)')}
-            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 1px 6px rgba(0,0,0,0.06)')}
+            style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
           >
-            {/* 이미지 */}
-            <div style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', marginBottom: '0', borderRadius: '12px' }}>
+            <div style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', borderRadius: '12px', marginBottom: '14px' }}>
               <img
                 src={product.image}
                 alt={product.name}
@@ -48,19 +32,12 @@ export default function ProductsPage() {
                 onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
               />
             </div>
-
-            {/* 정보 */}
-            <div style={{ display: 'flex', flexDirection: 'column', flex: 1, padding: '16px 16px 0' }}>
-              <h3 style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '22px', fontWeight: '600', color: '#1a1a1a', marginBottom: '6px' }}>
-                {product.name}
-              </h3>
-              <p style={{ fontSize: '13px', color: '#666', lineHeight: '1.5', marginBottom: '10px' }}>
-                {product.desc}
-              </p>
-              <p style={{ fontSize: '15px', fontWeight: '500', color: '#1a1a1a', marginTop: 'auto', marginBottom: '0' }}>
-                {product.volume} &nbsp;|&nbsp; {product.price}
-              </p>
-            </div>
+            <p style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '16px', fontWeight: '500', color: '#1a1a1a', marginBottom: '4px' }}>
+              {product.name}
+            </p>
+            <p style={{ fontSize: '13px', color: '#888', fontFamily: 'sans-serif' }}>
+              {product.price}
+            </p>
           </Link>
         ))}
       </div>
