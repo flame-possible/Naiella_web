@@ -82,9 +82,14 @@
 
 ## 3. 변경하지 않는 것
 - 폰트 (Bodoni Moda, Inter) — 현재 유지
-- VideoSlider, Section5, AboutPage, ProductDetail — 이번 범위 외
+- VideoSlider, Section5, AboutPage — 이번 범위 외
 - 라우팅, 데이터 구조 (`products.js`) — 변경 없음
-- 이미 적용된 `border-radius: 16px` 제품 이미지 — 유지
+
+## 3-1. 이미 완료된 변경 (ProductDetail)
+- 갤러리 메인 이미지 컨테이너: `border-radius: 16px` 적용
+- 썸네일 버튼: `border-radius: 8px` 적용
+- 하단 디테일 이미지: `border-radius: 16px` + `aspectRatio: 3/4` + `objectFit: contain` (잘림 수정)
+- You May Also Like 카드 이미지: `border-radius: 16px` 적용
 
 ---
 
