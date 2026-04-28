@@ -3,7 +3,7 @@ import products from '../data/products'
 
 export default function ProductsPage() {
   return (
-    <section className="products-page-wrap" style={{ padding: '72px 80px 100px', backgroundColor: '#fff', minHeight: '70vh' }}>
+    <section className="products-page-wrap" style={{ padding: '72px 80px 100px', backgroundColor: '#FAF9F6', minHeight: '70vh' }}>
 
       {/* 헤더 */}
       <div style={{ marginBottom: '56px' }}>
@@ -16,20 +16,37 @@ export default function ProductsPage() {
       </div>
 
       {/* 상품 그리드 */}
-      <div className="products-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px 32px' }}>
+      <div className="products-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px 24px' }}>
         {products.map((product) => (
-          <div key={product.id} style={{ display: 'flex', flexDirection: 'column', alignSelf: 'stretch' }}>
+          <div
+            key={product.id}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignSelf: 'stretch',
+              backgroundColor: '#FFFFFF',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              boxShadow: '0 1px 6px rgba(0,0,0,0.06)',
+              transition: 'box-shadow 0.2s',
+              padding: '0 0 16px 0',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.12)')}
+            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 1px 6px rgba(0,0,0,0.06)')}
+          >
             {/* 이미지 */}
-            <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden', marginBottom: '16px', backgroundColor: '#ffffff', borderRadius: '16px' }}>
+            <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden', marginBottom: '0', backgroundColor: '#F0EDE8' }}>
               <img
                 src={product.image}
                 alt={product.name}
-                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', transition: 'transform 0.4s ease' }}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.04)')}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
               />
             </div>
 
             {/* 정보 */}
-            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1, padding: '16px 16px 0' }}>
               <h3 style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '22px', fontWeight: '600', color: '#1a1a1a', marginBottom: '6px' }}>
                 {product.name}
               </h3>
@@ -45,10 +62,11 @@ export default function ProductsPage() {
               to={`/product/${product.id}`}
               style={{
                 display: 'block',
-                width: '100%',
+                width: 'calc(100% - 32px)',
+                margin: '0 16px',
                 padding: '12px',
-                backgroundColor: '#7d8f6e',
-                color: '#fff',
+                backgroundColor: '#2C2C2C',
+                color: '#FAF9F6',
                 fontSize: '11px',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
@@ -56,8 +74,8 @@ export default function ProductsPage() {
                 textDecoration: 'none',
                 boxSizing: 'border-box',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#6a7a5c')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#7d8f6e')}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#5A6E4A')}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#2C2C2C')}
             >
               View Product
             </Link>
