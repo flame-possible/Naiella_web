@@ -2,6 +2,13 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/naiella_web_logo.png'
 
+const NAV_ITEMS = [
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Products', to: '/products' },
+  { label: 'Contact', href: '#contact' },
+]
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -60,16 +67,27 @@ export default function Header() {
             </a>
           </nav>
 
-          {/* 햄버거 버튼 - 모바일 */}
+          {/* 햄버거 / X 버튼 - 모바일 */}
           <button
-            className="flex md:hidden flex-col justify-center gap-1.5"
-            style={{ position: 'absolute', right: '40px' }}
+            className="flex md:hidden"
+            style={{ position: 'absolute', right: '40px', background: 'none', border: 'none', cursor: 'pointer', padding: '4px', lineHeight: 0 }}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
           >
-            <span style={{ display: 'block', width: '22px', height: '1.5px', backgroundColor: '#1a1a1a', transition: 'all 0.3s', transform: menuOpen ? 'translateY(5px) rotate(45deg)' : 'none' }} />
-            <span style={{ display: 'block', width: '22px', height: '1.5px', backgroundColor: '#1a1a1a', transition: 'all 0.3s', opacity: menuOpen ? 0 : 1 }} />
-            <span style={{ display: 'block', width: '22px', height: '1.5px', backgroundColor: '#1a1a1a', transition: 'all 0.3s', transform: menuOpen ? 'translateY(-5px) rotate(-45deg)' : 'none' }} />
+            {menuOpen ? (
+              /* X 아이콘 */
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#1a1a1a" strokeWidth="1.5" strokeLinecap="round">
+                <line x1="3" y1="3" x2="17" y2="17" />
+                <line x1="17" y1="3" x2="3" y2="17" />
+              </svg>
+            ) : (
+              /* 햄버거 아이콘 */
+              <svg width="22" height="16" viewBox="0 0 22 16" fill="none" stroke="#1a1a1a" strokeWidth="1.5" strokeLinecap="round">
+                <line x1="0" y1="1" x2="22" y2="1" />
+                <line x1="0" y1="8" x2="22" y2="8" />
+                <line x1="0" y1="15" x2="22" y2="15" />
+              </svg>
+            )}
           </button>
         </div>
       </header>
@@ -86,19 +104,12 @@ export default function Header() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '0',
-          transition: 'opacity 0.3s, transform 0.3s',
+          transition: 'opacity 0.35s ease',
           opacity: menuOpen ? 1 : 0,
-          transform: menuOpen ? 'translateY(0)' : 'translateY(-12px)',
           pointerEvents: menuOpen ? 'auto' : 'none',
         }}
       >
-        {[
-          { label: 'Home', to: '/' },
-          { label: 'About', to: '/about' },
-          { label: 'Products', to: '/products' },
-          { label: 'Contact', href: '#contact', onClick: scrollToContact },
-        ].map(({ label, to, href, onClick }) => (
+        {NAV_ITEMS.map(({ label, to, href }, i) => (
           to ? (
             <Link
               key={label}
@@ -106,13 +117,15 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
               style={{
                 fontFamily: "'Bodoni Moda', serif",
-                fontSize: 'clamp(32px, 8vw, 52px)',
+                fontSize: 'clamp(36px, 10vw, 56px)',
                 fontWeight: '400',
                 color: '#2C2C2C',
                 textDecoration: 'none',
                 letterSpacing: '0.04em',
-                padding: '16px 0',
-                transition: 'color 0.2s',
+                padding: '12px 0',
+                transition: `opacity 0.4s ease ${menuOpen ? i * 80 : 0}ms, transform 0.4s ease ${menuOpen ? i * 80 : 0}ms, color 0.2s`,
+                opacity: menuOpen ? 1 : 0,
+                transform: menuOpen ? 'translateY(0)' : 'translateY(20px)',
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = '#AAAAAA')}
               onMouseLeave={(e) => (e.currentTarget.style.color = '#2C2C2C')}
@@ -123,16 +136,18 @@ export default function Header() {
             <a
               key={label}
               href={href}
-              onClick={onClick}
+              onClick={scrollToContact}
               style={{
                 fontFamily: "'Bodoni Moda', serif",
-                fontSize: 'clamp(32px, 8vw, 52px)',
+                fontSize: 'clamp(36px, 10vw, 56px)',
                 fontWeight: '400',
                 color: '#2C2C2C',
                 textDecoration: 'none',
                 letterSpacing: '0.04em',
-                padding: '16px 0',
-                transition: 'color 0.2s',
+                padding: '12px 0',
+                transition: `opacity 0.4s ease ${menuOpen ? i * 80 : 0}ms, transform 0.4s ease ${menuOpen ? i * 80 : 0}ms, color 0.2s`,
+                opacity: menuOpen ? 1 : 0,
+                transform: menuOpen ? 'translateY(0)' : 'translateY(20px)',
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = '#AAAAAA')}
               onMouseLeave={(e) => (e.currentTarget.style.color = '#2C2C2C')}
@@ -142,6 +157,12 @@ export default function Header() {
           )
         ))}
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          body { overflow: ${menuOpen ? 'hidden' : 'auto'}; }
+        }
+      `}</style>
     </>
   )
 }
