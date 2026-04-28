@@ -20,7 +20,7 @@ export default function ProductsPage() {
         {products.map((product) => (
           <div key={product.id} style={{ display: 'flex', flexDirection: 'column', alignSelf: 'stretch' }}>
             {/* 이미지 */}
-            <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden', marginBottom: '16px', backgroundColor: '#ffffff' }}>
+            <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden', marginBottom: '16px', backgroundColor: '#ffffff', borderRadius: '16px' }}>
               <img
                 src={product.image}
                 alt={product.name}

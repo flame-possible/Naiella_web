@@ -99,7 +99,7 @@ export default function ProductSlider() {
           style={{ flexShrink: 0, width: 'calc(25% - 18px)', display: 'flex', flexDirection: 'column' }}
           >
             {/* 상품 이미지 */}
-            <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden', marginBottom: '16px', backgroundColor: '#ffffff', flexShrink: 0 }}>
+            <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden', marginBottom: '16px', backgroundColor: '#ffffff', flexShrink: 0, borderRadius: '16px' }}>
               <img
                 src={product.image}
                 alt={product.name}

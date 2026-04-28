@@ -58,7 +58,7 @@ export default function ProductDetail() {
       <div className="product-detail-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'flex-start' }}>
 
         {/* 이미지 */}
-        <div style={{ aspectRatio: '3/4', overflow: 'hidden', backgroundColor: '#ffffff' }}>
+        <div style={{ aspectRatio: '3/4', overflow: 'hidden', backgroundColor: '#ffffff', borderRadius: '16px' }}>
           <img
             src={product.image}
             alt={product.name}
