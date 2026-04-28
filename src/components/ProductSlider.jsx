@@ -93,9 +93,11 @@ export default function ProductSlider() {
         }}
       >
         {products.map((product) => (
-          <div
+          <Link
             key={product.id}
+            to={`/product/${product.id}`}
             className="product-slider-card"
+            onClick={(e) => { if (hasDragged.current) e.preventDefault() }}
             style={{
               flexShrink: 0,
               width: 'calc(25% - 18px)',
@@ -106,6 +108,9 @@ export default function ProductSlider() {
               overflow: 'hidden',
               boxShadow: '0 1px 6px rgba(0,0,0,0.06)',
               padding: '0 0 16px 0',
+              textDecoration: 'none',
+              color: 'inherit',
+              cursor: 'pointer',
             }}
           >
             {/* 상품 이미지 */}
@@ -114,11 +119,13 @@ export default function ProductSlider() {
                 src={product.image}
                 alt={product.name}
                 draggable={false}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block', pointerEvents: 'none' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block', pointerEvents: 'none', transition: 'transform 0.4s ease' }}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.04)')}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
               />
             </div>
 
-            {/* 상품 정보 - 고정 높이 영역 */}
+            {/* 상품 정보 */}
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1, padding: '0 16px' }}>
               <h3 style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '19px', fontWeight: '600', color: '#1a1a1a', marginBottom: '6px' }}>
                 {product.name}
@@ -126,32 +133,11 @@ export default function ProductSlider() {
               <p style={{ fontSize: '11px', color: '#666', lineHeight: '1.5', marginBottom: '10px' }}>
                 {product.desc}
               </p>
-              <p style={{ fontSize: '14px', fontWeight: '500', color: '#1a1a1a', marginTop: 'auto', marginBottom: '16px' }}>
+              <p style={{ fontSize: '14px', fontWeight: '500', color: '#1a1a1a', marginTop: 'auto', marginBottom: '0' }}>
                 {product.volume} &nbsp;|&nbsp; {product.price}
               </p>
             </div>
-            <Link
-              to={`/product/${product.id}`}
-              style={{
-                display: 'block',
-                width: 'calc(100% - 32px)',
-                margin: '0 16px',
-                padding: '12px',
-                backgroundColor: '#2C2C2C',
-                color: '#FAF9F6',
-                fontSize: '11px',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                textAlign: 'center',
-                textDecoration: 'none',
-                boxSizing: 'border-box',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#5A6E4A')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#2C2C2C')}
-            >
-              View Product
-            </Link>
-          </div>
+          </Link>
         ))}
       </div>
 

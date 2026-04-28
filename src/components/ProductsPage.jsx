@@ -18,8 +18,9 @@ export default function ProductsPage() {
       {/* 상품 그리드 */}
       <div className="products-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px 24px' }}>
         {products.map((product) => (
-          <div
+          <Link
             key={product.id}
+            to={`/product/${product.id}`}
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -30,6 +31,9 @@ export default function ProductsPage() {
               boxShadow: '0 1px 6px rgba(0,0,0,0.06)',
               transition: 'box-shadow 0.2s',
               padding: '0 0 16px 0',
+              textDecoration: 'none',
+              color: 'inherit',
+              cursor: 'pointer',
             }}
             onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.12)')}
             onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 1px 6px rgba(0,0,0,0.06)')}
@@ -53,33 +57,11 @@ export default function ProductsPage() {
               <p style={{ fontSize: '13px', color: '#666', lineHeight: '1.5', marginBottom: '10px' }}>
                 {product.desc}
               </p>
-              <p style={{ fontSize: '15px', fontWeight: '500', color: '#1a1a1a', marginTop: 'auto', marginBottom: '16px' }}>
+              <p style={{ fontSize: '15px', fontWeight: '500', color: '#1a1a1a', marginTop: 'auto', marginBottom: '0' }}>
                 {product.volume} &nbsp;|&nbsp; {product.price}
               </p>
             </div>
-
-            <Link
-              to={`/product/${product.id}`}
-              style={{
-                display: 'block',
-                width: 'calc(100% - 32px)',
-                margin: '0 16px',
-                padding: '12px',
-                backgroundColor: '#2C2C2C',
-                color: '#FAF9F6',
-                fontSize: '11px',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                textAlign: 'center',
-                textDecoration: 'none',
-                boxSizing: 'border-box',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#5A6E4A')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#2C2C2C')}
-            >
-              View Product
-            </Link>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
