@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Playwright & dev tool artifacts
+.playwright-mcp/
+.superpowers/
+
+# Root-level temp screenshots
+/*.png
+/*.jpg
+/*.jpeg
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
