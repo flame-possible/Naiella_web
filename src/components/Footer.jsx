@@ -50,7 +50,7 @@ export default function Footer() {
             onMouseEnter={(e) => (e.currentTarget.style.color = '#FAF9F6')}
             onMouseLeave={(e) => (e.currentTarget.style.color = '#AAAAAA')}
           >
-            Contact
+            Back to Top
           </button>
         </div>
       </div>

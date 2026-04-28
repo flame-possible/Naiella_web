@@ -179,7 +179,7 @@ export default function ProductDetail() {
           {otherProducts.map((p) => (
             <Link
               key={p.id}
-              to={`/products/${p.id}`}
+              to={`/product/${p.id}`}
               onClick={() => setSelectedImg(0)}
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
