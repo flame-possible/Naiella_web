@@ -34,7 +34,7 @@ export default function Header() {
       >
         <div style={{ padding: '20px 40px' }} className="w-full flex items-center relative">
           {/* Logo */}
-          <Link to="/" onClick={() => setMenuOpen(false)}>
+          <Link to="/" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
             <img src={logo} alt="NAIELLA" className="h-10 w-auto" />
           </Link>
 
