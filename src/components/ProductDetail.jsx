@@ -154,11 +154,11 @@ export default function ProductDetail() {
       {product.detailImages && product.detailImages.length > 0 && (
         <div style={{ display: 'grid', gridTemplateColumns: `repeat(${product.detailImages.length}, 1fr)`, gap: '8px', marginTop: '60px' }}>
           {product.detailImages.map((img, i) => (
-            <div key={i} style={{ aspectRatio: '1/1', overflow: 'hidden', borderRadius: '16px' }}>
+            <div key={i} style={{ aspectRatio: '3/4', overflow: 'hidden', borderRadius: '16px' }}>
               <img
                 src={img}
                 alt={`${product.name} detail ${i + 1}`}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
               />
             </div>
           ))}
