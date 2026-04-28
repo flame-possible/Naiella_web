@@ -12,8 +12,8 @@ export default function Footer() {
           {/* 로고 */}
           <img src={logo} alt="NAIELLA" style={{ height: '40px', width: 'auto', filter: 'brightness(0) invert(1)' }} />
 
-          {/* 네비 가로 */}
-          <nav style={{ display: 'flex', gap: '48px' }}>
+          {/* 네비 가로 — 오른쪽으로 밀착 */}
+          <nav style={{ display: 'flex', gap: '48px', marginLeft: 'auto', marginRight: '60px' }}>
             <Link
               to="/"
               style={{ fontSize: '13px', letterSpacing: '0.12em', color: '#AAAAAA', textDecoration: 'none', transition: 'color 0.2s' }}
@@ -38,6 +38,14 @@ export default function Footer() {
             >
               Products
             </Link>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              style={{ fontSize: '13px', letterSpacing: '0.12em', color: '#AAAAAA', background: 'none', border: 'none', cursor: 'pointer', padding: 0, transition: 'color 0.2s' }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#FAF9F6')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = '#AAAAAA')}
+            >
+              Back to Top
+            </button>
           </nav>
 
           {/* 인스타그램 버튼 (링크 추후 추가) */}
