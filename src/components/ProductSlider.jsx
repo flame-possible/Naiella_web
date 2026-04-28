@@ -109,12 +109,12 @@ export default function ProductSlider() {
             }}
           >
             {/* 상품 이미지 */}
-            <div style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', marginBottom: '16px', backgroundColor: '#F0EDE8', flexShrink: 0 }}>
+            <div style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', marginBottom: '16px', borderRadius: '12px', flexShrink: 0 }}>
               <img
                 src={product.image}
                 alt={product.name}
                 draggable={false}
-                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', pointerEvents: 'none', padding: '8px' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block', pointerEvents: 'none' }}
               />
             </div>
 

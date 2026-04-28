@@ -35,11 +35,11 @@ export default function ProductsPage() {
             onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 1px 6px rgba(0,0,0,0.06)')}
           >
             {/* 이미지 */}
-            <div style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', marginBottom: '0', backgroundColor: '#F0EDE8' }}>
+            <div style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', marginBottom: '0', borderRadius: '12px' }}>
               <img
                 src={product.image}
                 alt={product.name}
-                style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', transition: 'transform 0.4s ease', padding: '8px' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block', transition: 'transform 0.4s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.04)')}
                 onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
               />
