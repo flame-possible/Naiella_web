@@ -12,7 +12,18 @@ export default function Header() {
   }
 
   return (
-    <header className="w-full border-b border-gray-100">
+    <header
+      className="w-full"
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 50,
+        background: 'rgba(250,249,246,0.92)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        borderBottom: '1px solid #E8E4DE',
+      }}
+    >
       <div style={{ padding: '20px 40px' }} className="w-full flex items-center relative">
         {/* Logo */}
         <Link to="/">
@@ -21,13 +32,29 @@ export default function Header() {
 
         {/* Navigation - 데스크탑 */}
         <nav className="absolute left-1/2 -translate-x-1/2 items-center gap-10 hidden md:flex">
-          <Link to="/about" className="text-sm tracking-widest text-gray-700 hover:text-black transition-colors duration-200">
+          <Link
+            to="/about"
+            style={{ fontSize: '13px', letterSpacing: '0.12em', color: '#2C2C2C', textDecoration: 'none', transition: 'color 0.2s' }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = '#5A6E4A')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = '#2C2C2C')}
+          >
             About
           </Link>
-          <Link to="/products" className="text-sm tracking-widest text-gray-700 hover:text-black transition-colors duration-200">
+          <Link
+            to="/products"
+            style={{ fontSize: '13px', letterSpacing: '0.12em', color: '#2C2C2C', textDecoration: 'none', transition: 'color 0.2s' }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = '#5A6E4A')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = '#2C2C2C')}
+          >
             Products
           </Link>
-          <a href="#contact" onClick={scrollToContact} className="text-sm tracking-widest text-gray-700 hover:text-black transition-colors duration-200">
+          <a
+            href="#contact"
+            onClick={scrollToContact}
+            style={{ fontSize: '13px', letterSpacing: '0.12em', color: '#2C2C2C', textDecoration: 'none', transition: 'color 0.2s' }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = '#5A6E4A')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = '#2C2C2C')}
+          >
             Contact
           </a>
         </nav>
@@ -47,17 +74,17 @@ export default function Header() {
 
       {/* 모바일 메뉴 드롭다운 */}
       {menuOpen && (
-        <nav className="flex md:hidden flex-col border-t border-gray-100">
+        <nav className="flex md:hidden flex-col" style={{ borderTop: '1px solid #E8E4DE', background: '#FAF9F6' }}>
           <Link to="/about" onClick={() => setMenuOpen(false)}
-            style={{ padding: '16px 40px', fontSize: '13px', letterSpacing: '0.15em', color: '#1a1a1a', textDecoration: 'none', borderBottom: '1px solid #f5f5f5' }}>
+            style={{ padding: '16px 40px', fontSize: '13px', letterSpacing: '0.15em', color: '#2C2C2C', textDecoration: 'none', borderBottom: '1px solid #f5f5f5' }}>
             About
           </Link>
           <Link to="/products" onClick={() => setMenuOpen(false)}
-            style={{ padding: '16px 40px', fontSize: '13px', letterSpacing: '0.15em', color: '#1a1a1a', textDecoration: 'none', borderBottom: '1px solid #f5f5f5' }}>
+            style={{ padding: '16px 40px', fontSize: '13px', letterSpacing: '0.15em', color: '#2C2C2C', textDecoration: 'none', borderBottom: '1px solid #f5f5f5' }}>
             Products
           </Link>
           <a href="#contact" onClick={scrollToContact}
-            style={{ padding: '16px 40px', fontSize: '13px', letterSpacing: '0.15em', color: '#1a1a1a', textDecoration: 'none' }}>
+            style={{ padding: '16px 40px', fontSize: '13px', letterSpacing: '0.15em', color: '#2C2C2C', textDecoration: 'none' }}>
             Contact
           </a>
         </nav>
