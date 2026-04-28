@@ -51,9 +51,25 @@ export default function ProductsPage() {
               <p style={{ fontSize: '12px', color: '#AAAAAA', fontFamily: 'sans-serif' }}>
                 {product.volume}
               </p>
-              <p style={{ fontSize: '14px', color: '#2C2C2C', fontFamily: "'Bodoni Moda', serif", marginTop: '4px' }}>
+              <p style={{ fontSize: '14px', color: '#2C2C2C', fontFamily: "'Bodoni Moda', serif", marginTop: '4px', marginBottom: '12px' }}>
                 {product.price}
               </p>
+              <div
+                style={{
+                  padding: '10px',
+                  backgroundColor: '#2C2C2C',
+                  color: '#FAF9F6',
+                  fontSize: '11px',
+                  letterSpacing: '0.15em',
+                  textTransform: 'uppercase',
+                  textAlign: 'center',
+                  transition: 'background-color 0.2s',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#5A6E4A')}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#2C2C2C')}
+              >
+                View Product
+              </div>
             </div>
           </Link>
         ))}
