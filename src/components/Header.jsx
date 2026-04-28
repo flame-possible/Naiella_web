@@ -160,11 +160,6 @@ export default function Header() {
         ))}
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          body { overflow: ${menuOpen ? 'hidden' : 'auto'}; }
-        }
-      `}</style>
     </>
   )
 }
