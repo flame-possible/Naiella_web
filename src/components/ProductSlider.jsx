@@ -62,7 +62,7 @@ export default function ProductSlider() {
   }
 
   return (
-    <section className="product-slider-section relative w-full bg-white" style={{ padding: '72px 0 80px' }}>
+    <section className="product-slider-section relative w-full" style={{ padding: '72px 0 80px', backgroundColor: '#FAF9F6' }}>
       {/* 섹션 헤더 */}
       <div className="product-slider-header" style={{ padding: '0 80px', marginBottom: '48px' }}>
         <p style={{ fontSize: '12px', letterSpacing: '0.15em', color: '#888', textTransform: 'uppercase', marginBottom: '8px', fontFamily: "'Bodoni Moda', serif" }}>
@@ -96,10 +96,20 @@ export default function ProductSlider() {
           <div
             key={product.id}
             className="product-slider-card"
-          style={{ flexShrink: 0, width: 'calc(25% - 18px)', display: 'flex', flexDirection: 'column' }}
+            style={{
+              flexShrink: 0,
+              width: 'calc(25% - 18px)',
+              display: 'flex',
+              flexDirection: 'column',
+              backgroundColor: '#FFFFFF',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              boxShadow: '0 1px 6px rgba(0,0,0,0.06)',
+              padding: '0 0 16px 0',
+            }}
           >
             {/* 상품 이미지 */}
-            <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden', marginBottom: '16px', backgroundColor: '#ffffff', flexShrink: 0, borderRadius: '16px' }}>
+            <div style={{ width: '100%', aspectRatio: '3/4', overflow: 'hidden', marginBottom: '16px', backgroundColor: '#F0EDE8', flexShrink: 0 }}>
               <img
                 src={product.image}
                 alt={product.name}
@@ -109,7 +119,7 @@ export default function ProductSlider() {
             </div>
 
             {/* 상품 정보 - 고정 높이 영역 */}
-            <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', flex: 1, padding: '0 16px' }}>
               <h3 style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '19px', fontWeight: '600', color: '#1a1a1a', marginBottom: '6px' }}>
                 {product.name}
               </h3>
@@ -124,10 +134,11 @@ export default function ProductSlider() {
               to={`/product/${product.id}`}
               style={{
                 display: 'block',
-                width: '100%',
+                width: 'calc(100% - 32px)',
+                margin: '0 16px',
                 padding: '12px',
-                backgroundColor: '#7d8f6e',
-                color: '#fff',
+                backgroundColor: '#2C2C2C',
+                color: '#FAF9F6',
                 fontSize: '11px',
                 letterSpacing: '0.15em',
                 textTransform: 'uppercase',
@@ -135,8 +146,8 @@ export default function ProductSlider() {
                 textDecoration: 'none',
                 boxSizing: 'border-box',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#6a7a5c')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#7d8f6e')}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#5A6E4A')}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#2C2C2C')}
             >
               View Product
             </Link>
