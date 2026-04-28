@@ -16,14 +16,15 @@ export default function ProductsPage() {
       </div>
 
       {/* 상품 그리드 */}
-      <div className="products-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '48px 24px' }}>
+      <div className="products-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '32px 24px' }}>
         {products.map((product) => (
           <Link
             key={product.id}
             to={`/product/${product.id}`}
-            style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+            style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer', display: 'flex', flexDirection: 'column' }}
           >
-            <div style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', borderRadius: '12px', marginBottom: '14px' }}>
+            {/* 이미지 */}
+            <div style={{ width: '100%', aspectRatio: '1/1', overflow: 'hidden', borderRadius: '12px 12px 0 0', backgroundColor: '#F0EDE8', flexShrink: 0 }}>
               <img
                 src={product.image}
                 alt={product.name}
@@ -32,12 +33,28 @@ export default function ProductsPage() {
                 onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
               />
             </div>
-            <p style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '16px', fontWeight: '500', color: '#1a1a1a', marginBottom: '4px' }}>
-              {product.name}
-            </p>
-            <p style={{ fontSize: '13px', color: '#888', fontFamily: 'sans-serif' }}>
-              {product.price}
-            </p>
+
+            {/* 텍스트 영역 */}
+            <div style={{
+              backgroundColor: '#FFFFFF',
+              borderRadius: '0 0 12px 12px',
+              padding: '16px 16px 20px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '4px',
+              border: '1px solid #EEEBE6',
+              borderTop: 'none',
+            }}>
+              <p style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '15px', fontWeight: '500', color: '#1a1a1a', lineHeight: '1.3' }}>
+                {product.name}
+              </p>
+              <p style={{ fontSize: '12px', color: '#AAAAAA', fontFamily: 'sans-serif' }}>
+                {product.volume}
+              </p>
+              <p style={{ fontSize: '14px', color: '#2C2C2C', fontFamily: "'Bodoni Moda', serif", marginTop: '4px' }}>
+                {product.price}
+              </p>
+            </div>
           </Link>
         ))}
       </div>
