@@ -6,6 +6,7 @@ export default function ProductDetail() {
   const { id } = useParams()
   const product = products.find((p) => p.id === Number(id))
   const [open, setOpen] = useState(null)
+  const [selectedImg, setSelectedImg] = useState(0)
 
   if (!product) {
     return (
@@ -17,6 +18,9 @@ export default function ProductDetail() {
   }
 
   const toggle = (key) => setOpen(open === key ? null : key)
+
+  const images = product.thumbnails && product.thumbnails.length > 0 ? product.thumbnails : [product.image]
+  const otherProducts = products.filter((p) => p.id !== product.id)
 
   const accordionSections = [
     {
@@ -54,16 +58,46 @@ export default function ProductDetail() {
         <span style={{ color: '#1a1a1a' }}>{product.name}</span>
       </p>
 
-      {/* Main: image + info */}
+      {/* Main: image gallery + info */}
       <div className="product-detail-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'flex-start' }}>
 
-        {/* 이미지 */}
-        <div style={{ aspectRatio: '3/4', overflow: 'hidden', backgroundColor: '#ffffff', borderRadius: '16px' }}>
-          <img
-            src={product.image}
-            alt={product.name}
-            style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
-          />
+        {/* 이미지 갤러리: 메인 + 썸네일 세로 */}
+        <div style={{ display: 'flex', gap: '12px' }}>
+          {/* 메인 이미지 */}
+          <div style={{ flex: 1, aspectRatio: '1/1', overflow: 'hidden', backgroundColor: '#f7f7f5', borderRadius: '16px' }}>
+            <img
+              src={images[selectedImg]}
+              alt={product.name}
+              style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }}
+            />
+          </div>
+
+          {/* 썸네일 세로 목록 */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '76px', flexShrink: 0 }}>
+            {images.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setSelectedImg(i)}
+                style={{
+                  width: '76px',
+                  aspectRatio: '1/1',
+                  overflow: 'hidden',
+                  border: i === selectedImg ? '1.5px solid #1a1a1a' : '1.5px solid transparent',
+                  borderRadius: '8px',
+                  padding: 0,
+                  background: '#f0efec',
+                  cursor: 'pointer',
+                  flexShrink: 0,
+                }}
+              >
+                <img
+                  src={img}
+                  alt={`${product.name} ${i + 1}`}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* 상품 정보 */}
@@ -113,6 +147,62 @@ export default function ProductDetail() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* 하단 디테일 이미지 가로 행 */}
+      {product.detailImages && product.detailImages.length > 0 && (
+        <div style={{ display: 'grid', gridTemplateColumns: `repeat(${product.detailImages.length}, 1fr)`, gap: '8px', marginTop: '60px' }}>
+          {product.detailImages.map((img, i) => (
+            <div key={i} style={{ aspectRatio: '1/1', overflow: 'hidden' }}>
+              <img
+                src={img}
+                alt={`${product.name} detail ${i + 1}`}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* 다른 상품 섹션 */}
+      <div style={{ marginTop: '100px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '40px' }}>
+          <div style={{ flex: 1, height: '1px', backgroundColor: '#e5e5e5' }} />
+          <p style={{ fontSize: '11px', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#aaa', fontFamily: 'sans-serif', whiteSpace: 'nowrap' }}>
+            You May Also Like
+          </p>
+          <div style={{ flex: 1, height: '1px', backgroundColor: '#e5e5e5' }} />
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '24px' }}>
+          {otherProducts.map((p) => (
+            <Link
+              key={p.id}
+              to={`/products/${p.id}`}
+              onClick={() => setSelectedImg(0)}
+              style={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              <div style={{ overflow: 'hidden', backgroundColor: '#f7f7f5', aspectRatio: '1/1', marginBottom: '14px' }}>
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', transition: 'transform 0.4s ease' }}
+                  onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.04)'}
+                  onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                />
+              </div>
+              <p style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#aaa', fontFamily: 'sans-serif', marginBottom: '6px' }}>
+                Naiella
+              </p>
+              <p style={{ fontSize: '14px', fontFamily: "'Bodoni Moda', serif", color: '#1a1a1a', lineHeight: '1.3', marginBottom: '6px' }}>
+                {p.name}
+              </p>
+              <p style={{ fontSize: '14px', fontFamily: "'Bodoni Moda', serif", color: '#555' }}>
+                {p.price}
+              </p>
+            </Link>
+          ))}
         </div>
       </div>
     </div>

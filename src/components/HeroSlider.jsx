@@ -42,17 +42,17 @@ export default function HeroSlider() {
   const next = () => setCurrent((c) => (c + 1) % slides.length)
 
   return (
-    <section className="relative w-full overflow-hidden bg-white" style={{ height: '92vh' }}>
+    <section className="relative w-full bg-white" style={{ minHeight: '92vh', overflowX: 'hidden' }}>
       {/* Slides */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${current * 100}%)`, height: '92vh' }}
+        style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {slides.map((slide, i) => (
           <div
             key={slide.id}
-            className="min-w-full flex flex-col items-center overflow-hidden relative"
-            style={{ height: '92vh' }}
+            className="min-w-full flex flex-col items-center relative"
+            style={{ minHeight: '92vh' }}
           >
             {/* 이미지 */}
             <img
@@ -77,12 +77,12 @@ export default function HeroSlider() {
 
             {/* 로고 + 텍스트 콘텐츠 (이미지 전용 슬라이드는 생략) */}
             {slide.text && (
-              <div className="flex flex-col items-center w-full flex-1 overflow-hidden" style={{ paddingTop: '24px', paddingBottom: '24px' }}>
+              <div className="flex flex-col items-center w-full" style={{ paddingTop: '24px', paddingBottom: '48px' }}>
                 {/* 로고 */}
                 <img src={logo} alt="NAIELLA" style={{ width: 'clamp(150px, 35vw, 500px)' }} className="mb-2 flex-shrink-0" />
 
                 {/* 본문 텍스트 - 왼쪽 정렬, 넓게 */}
-                <div className="w-full text-left overflow-y-auto flex-1" style={{ maxWidth: '1200px', padding: '0 48px', marginTop: '24px' }}>
+                <div className="w-full text-left" style={{ maxWidth: '1200px', padding: '0 48px', marginTop: '24px' }}>
                   {slide.text.split('\n\n').map((para, idx) => (
                     <p key={idx} className="text-gray-700 mb-3" style={{ fontFamily: "'Bodoni Moda', serif", fontSize: '15px', lineHeight: '1.3', fontWeight: '500' }}>
                       {idx === 0 ? (
